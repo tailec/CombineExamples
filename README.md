@@ -16,11 +16,11 @@
 
 <div align="center">
 <!-- Last commit -->
-<img src="https://img.shields.io/github/last-commit/tailec/ios-architecture.svg" alt="last commit"/>
+<img src="https://img.shields.io/github/last-commit/tailec/CombineExamples.svg" alt="last commit"/>
 <!-- Open issues -->
-<img src="https://img.shields.io/github/issues-raw/tailec/ios-architecture.svg" alt="open issues" />
+<img src="https://img.shields.io/github/issues-raw/tailec/CombineExamples.svg" alt="open issues" />
 <!-- Swift version -->
-<img src="https://img.shields.io/badge/swift%20version-4.2-brightgreen.svg" alt="swift version">
+<img src="https://img.shields.io/badge/swift%20version-5.1-brightgreen.svg" alt="swift version">
 <!-- Platform -->
 <img src="https://img.shields.io/badge/platform-ios-lightgrey.svg" alt="platform" />
 <!-- License -->
@@ -37,36 +37,30 @@ Pawel Krawiec
 <br />
 
 
-## Apps
+## Examples
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/LoginGif.gif" />
 <p><h1 align="left">LOGIN SCREEN</h1></p>
-<h4>Simple login screen validation</h4>
-<p><h6>Stay tuned for the latest updates:</h6>
-<a href="https://goo.gl/rPFpid" >
-<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a></p>
-<h4><a href="https://github.com/Ramotion/circular-carousel#installation">⚙️ Installation Guide →</a></h4>
-<h4><a href="https://github.com/Ramotion/circular-carousel#requirements">☑️ Requirements →</a></h4>
-<br></br>
+<br></br><br></br><br></br><br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/TimerGif.gif" />
 <p><h1 align="left">TIMER</h1></p>
 <h4>Simplified stopwatch</h4>
-<br></br>
+<br></br><br></br><br></br><br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/SearchGif.gif" />
 <p><h1 align="left">SEARCH</h1></p>
 <h4>Browsing GitHub repositories</h4>
-<br></br>
+<br></br><br></br><br></br><br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/UsernameGif.gif" />
 <p><h1 align="left">AVAILABILITY</h1></p>
 <h4>Check if your repository name is already taken</h4>
-<br></br>
+<br></br><br></br><br></br><br></br><br></br>
 
 
 
