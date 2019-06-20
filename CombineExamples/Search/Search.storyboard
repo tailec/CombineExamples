@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6pb-U8-Ru1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="8nm-sk-fwZ">
+            <objects>
+                <viewController title="Search" id="6pb-U8-Ru1" customClass="SearchViewController" customModule="CombineExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q17-cR-cLL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start typing..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DM1-dD-Zbb">
+                                <rect key="frame" x="20" y="58" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="queryDidChange:" destination="6pb-U8-Ru1" eventType="editingChanged" id="E7T-Wz-4lk"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNi-fM-i7o">
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eNi-fM-i7o" firstAttribute="top" secondItem="DM1-dD-Zbb" secondAttribute="bottom" constant="14" id="3J0-oh-0R2"/>
+                            <constraint firstItem="DM1-dD-Zbb" firstAttribute="top" secondItem="3Ls-Vm-O6Z" secondAttribute="top" constant="14" id="6RE-mh-YeA"/>
+                            <constraint firstItem="3Ls-Vm-O6Z" firstAttribute="bottom" secondItem="eNi-fM-i7o" secondAttribute="bottom" id="Y6z-Ya-Snd"/>
+                            <constraint firstItem="DM1-dD-Zbb" firstAttribute="leading" secondItem="3Ls-Vm-O6Z" secondAttribute="leading" constant="20" id="b1M-gC-aRw"/>
+                            <constraint firstItem="eNi-fM-i7o" firstAttribute="leading" secondItem="3Ls-Vm-O6Z" secondAttribute="leading" id="d6f-p1-JHH"/>
+                            <constraint firstItem="3Ls-Vm-O6Z" firstAttribute="trailing" secondItem="DM1-dD-Zbb" secondAttribute="trailing" constant="20" id="qqZ-RF-rOc"/>
+                            <constraint firstItem="3Ls-Vm-O6Z" firstAttribute="trailing" secondItem="eNi-fM-i7o" secondAttribute="trailing" id="x2b-kO-aaB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Ls-Vm-O6Z"/>
+                    </view>
+                    <connections>
+                        <outlet property="queryTextField" destination="DM1-dD-Zbb" id="gOH-OY-jV2"/>
+                        <outlet property="tableView" destination="eNi-fM-i7o" id="Z7j-Eq-NW9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSp-Lj-hvU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57.971014492753625" y="156.69642857142856"/>
+        </scene>
+    </scenes>
+</document>

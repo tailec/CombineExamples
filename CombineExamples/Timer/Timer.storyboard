@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hHC-vJ-IO1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Timer-->
+        <scene sceneID="lc1-fQ-AtJ">
+            <objects>
+                <viewController title="Timer" id="hHC-vJ-IO1" customClass="TimerViewController" customModule="CombineExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Na-rW-aBl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zun-Sn-sY3">
+                                <rect key="frame" x="20" y="144" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lec-ky-f8y">
+                                <rect key="frame" x="191.5" y="205" width="31" height="30"/>
+                                <state key="normal" title="Split"/>
+                                <connections>
+                                    <action selector="splitButtonDidTap:" destination="hHC-vJ-IO1" eventType="touchUpInside" id="id9-qe-TDq"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J7f-U6-Yg9">
+                                <rect key="frame" x="0.0" y="255" width="414" height="607"/>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JeN-E8-kRR" firstAttribute="bottom" secondItem="J7f-U6-Yg9" secondAttribute="bottom" id="1fp-ON-TcO"/>
+                            <constraint firstItem="Lec-ky-f8y" firstAttribute="top" secondItem="zun-Sn-sY3" secondAttribute="bottom" constant="20" id="3B7-3h-UgV"/>
+                            <constraint firstItem="Lec-ky-f8y" firstAttribute="centerX" secondItem="JeN-E8-kRR" secondAttribute="centerX" id="9aR-jc-K0n"/>
+                            <constraint firstItem="zun-Sn-sY3" firstAttribute="leading" secondItem="JeN-E8-kRR" secondAttribute="leading" constant="20" id="9gq-dr-ybl"/>
+                            <constraint firstItem="JeN-E8-kRR" firstAttribute="trailing" secondItem="zun-Sn-sY3" secondAttribute="trailing" constant="20" id="VhR-4y-4AL"/>
+                            <constraint firstItem="J7f-U6-Yg9" firstAttribute="top" secondItem="Lec-ky-f8y" secondAttribute="bottom" constant="20" id="YlZ-7m-e6E"/>
+                            <constraint firstItem="J7f-U6-Yg9" firstAttribute="leading" secondItem="JeN-E8-kRR" secondAttribute="leading" id="jKb-hU-Tju"/>
+                            <constraint firstItem="JeN-E8-kRR" firstAttribute="trailing" secondItem="J7f-U6-Yg9" secondAttribute="trailing" id="tba-ZV-11K"/>
+                            <constraint firstItem="zun-Sn-sY3" firstAttribute="top" secondItem="JeN-E8-kRR" secondAttribute="top" constant="100" id="yX5-Kl-vIA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JeN-E8-kRR"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="J7f-U6-Yg9" id="9l8-Tq-b9y"/>
+                        <outlet property="timerLabel" destination="zun-Sn-sY3" id="eCC-bd-Hyv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="una-pP-VDc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="129"/>
+        </scene>
+    </scenes>
+</document>
