@@ -41,24 +41,25 @@ Pawel Krawiec
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/LoginGif.gif" />
-<p><h1 align="left">LOGIN SCREEN</h1></p>
+<p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Login"><h1 align="left">LOGIN SCREEN</h1></a></p>
+<h4>Simple user login validation</h4>
 <br></br><br></br><br></br><br></br><br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/TimerGif.gif" />
-<p><h1 align="left">TIMER</h1></p>
+<p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Timer"><h1 align="left">TIMER</h1></a></p>
 <h4>Simplified stopwatch</h4>
 <br></br><br></br><br></br><br></br><br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/SearchGif.gif" />
-<p><h1 align="left">SEARCH</h1></p>
+<p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Search"><h1 align="left">SEARCH</h1></a></p>
 <h4>Browsing GitHub repositories</h4>
 <br></br><br></br><br></br><br></br><br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/UsernameGif.gif" />
-<p><h1 align="left">AVAILABILITY</h1></p>
+<p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Username"><h1 align="left">AVAILABILITY</h1></a></p>
 <h4>Check if your repository name is already taken</h4>
 <br></br><br></br><br></br><br></br><br></br><br></br>
 
