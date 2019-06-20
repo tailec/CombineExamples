@@ -40,30 +40,30 @@ Pawel Krawiec
 ## Apps
 
 
-<div align="center">
-
-<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/LoginGif.gif" width="480" height="360" />
+<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/LoginGif.gif" />
 <p><h1 align="left">LOGIN SCREEN</h1></p>
 <h4>Simple login screen validation</h4>
 <br></br>
 
-<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/TimerGif.gif" width="480" height="360" />
+
+<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/TimerGif.gif" />
 <p><h1 align="left">TIMER</h1></p>
 <h4>Simplified stopwatch</h4>
 <br></br>
 
-<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/SearchGif.gif" width="480" height="360" />
+
+<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/SearchGif.gif" />
 <p><h1 align="left">SEARCH</h1></p>
 <h4>Browsing GitHub repositories</h4>
 <br></br>
 
-<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/UsernameGif.gif" width="480" height="360" />
+
+<img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/UsernameGif.gif" />
 <p><h1 align="left">AVAILABILITY</h1></p>
 <h4>Check if your repository name is already taken</h4>
 <br></br>
 
 
-</div>
 
 ## Licence
 MIT.
