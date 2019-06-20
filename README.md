@@ -64,6 +64,8 @@ Pawel Krawiec
 <br></br><br></br><br></br><br></br><br></br><br></br>
 
 
+<h3>Stay tuned. More examples coming.</h3>
+
 
 ## Licence
 MIT.
