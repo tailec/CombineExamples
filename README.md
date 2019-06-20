@@ -43,6 +43,11 @@ Pawel Krawiec
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/LoginGif.gif" />
 <p><h1 align="left">LOGIN SCREEN</h1></p>
 <h4>Simple login screen validation</h4>
+<p><h6>Stay tuned for the latest updates:</h6>
+<a href="https://goo.gl/rPFpid" >
+<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a></p>
+<h4><a href="https://github.com/Ramotion/circular-carousel#installation">⚙️ Installation Guide →</a></h4>
+<h4><a href="https://github.com/Ramotion/circular-carousel#requirements">☑️ Requirements →</a></h4>
 <br></br>
 
 
