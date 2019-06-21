@@ -56,27 +56,81 @@ credentials
     .prepend(false) // initial state
     .assign(to: \.isEnabled, on: loginButton)
     .cancelled(by: cancellableBag)
+    // More in the example...
 ```
 
-<br></br><br></br>
+<br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/TimerGif.gif" />
 <p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Timer"><h1 align="left">TIMER</h1></a></p>
 <h4>Simplified stopwatch</h4>
-<br></br><br></br><br></br><br></br><br></br><br></br>
+
+```swift
+Timer.publish(every: 0.1, on: .main, in: .default)
+    .autoconnect()
+    .scan(0, { (acc, _ ) in return acc + 1 })
+    .map { $0.timeInterval }
+    .replaceError(with: "")
+    .eraseToAnyPublisher()
+    .assign(to: \.currentTime, on: self)
+    .cancelled(by: cancellableBag)
+    // More in the example...
+```
+
+<br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/SearchGif.gif" />
 <p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Search"><h1 align="left">SEARCH</h1></a></p>
 <h4>Browsing GitHub repositories</h4>
-<br></br><br></br><br></br><br></br><br></br><br></br>
+
+```swift
+$query
+    .throttle(for: 0.5, scheduler: .main, latest: true)
+    .removeDuplicates()
+    .map { query in
+        guard query.count >= 3 else {
+            return Publishers.Just([])
+                .eraseToAnyPublisher()
+        }
+        return API().search(with: query)
+            .retry(3)
+            .eraseToAnyPublisher()
+    }
+    // More in the example...
+```
+
+<br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/UsernameGif.gif" />
 <p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Username"><h1 align="left">AVAILABILITY</h1></a></p>
 <h4>Check if your repository name is already taken</h4>
-<br></br><br></br><br></br><br></br><br></br><br></br>
+
+```swift
+ $text
+    .throttle(for: 0.5, scheduler: .main, latest: true)
+    .map { text  in
+        guard !text.isEmpty else {
+            Publishers
+                .Just("Field can't be empty")
+                .eraseToAnyPublisher()
+        }
+        return API().search(with: text)
+            .map { isAvailable in
+                isAvailable ? "Name available" 
+                            : "Name already taken"
+            }
+            .prepend("Checking...")
+            .eraseToAnyPublisher()
+    }
+    .switchToLatest()
+    .prepend("Start typing...")
+    // More in the example...
+```
+
+<br></br>
 
 
 <h3>Stay tuned. More examples coming.</h3>
