@@ -43,6 +43,7 @@ Pawel Krawiec
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/LoginGif.gif" />
 <p><a href="https://github.com/tailec/CombineExamples/tree/master/CombineExamples/Login"><h1 align="left">LOGIN SCREEN</h1></a></p>
 <h4>Simple user login validation</h4>
+
 ```swift
 let credentials = Publishers.CombineLatest($username, $password) { ($0, $1) }
     .share()
@@ -55,6 +56,7 @@ credentials
     .assign(to: \.isEnabled, on: loginButton)
     .cancelled(by: cancellableBag)
 ```
+
 <br></br><br></br><br></br>
 
 
