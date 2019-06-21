@@ -46,7 +46,7 @@ Pawel Krawiec
 
 ```swift
 let credentials = Publishers
-    .CombineLatest($username, $password) { ($0, $1) }
+    .CombineLatest($username, $password)
     .share()
 
 credentials
@@ -56,7 +56,6 @@ credentials
     .prepend(false) // initial state
     .assign(to: \.isEnabled, on: loginButton)
     .cancelled(by: cancellableBag)
-    // ...
 ```
 
 <br></br><br></br>
