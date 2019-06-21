@@ -87,13 +87,11 @@ Timer.publish(every: 0.1, on: .main, in: .default)
 
 ```swift
 $query
-    .throttle(for: 0.5, scheduler: .main, latest: true)
+    .throttle(for: 0.5, 
+        scheduler: .main, 
+           latest: true)
     .removeDuplicates()
     .map { query in
-        guard query.count >= 3 else {
-            return Publishers.Just([])
-                .eraseToAnyPublisher()
-        }
         return API().search(with: query)
             .retry(3)
             .eraseToAnyPublisher()
@@ -110,17 +108,14 @@ $query
 
 ```swift
  $text
-    .throttle(for: 0.5, scheduler: .main, latest: true)
+    .throttle(for: 0.5, 
+        scheduler: .main, 
+           latest: true)
     .map { text  in
-        guard !text.isEmpty else {
-            Publishers
-                .Just("Field can't be empty")
-                .eraseToAnyPublisher()
-        }
-        return API().search(with: text)
+        API().search(with: text)
             .map { isAvailable in
                 isAvailable ? "Name available" 
-                            : "Name already taken"
+                        : "Name already taken"
             }
             .prepend("Checking...")
             .eraseToAnyPublisher()
