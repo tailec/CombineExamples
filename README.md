@@ -46,9 +46,8 @@ Pawel Krawiec
 
 ```swift
 let credentials = Publishers
-    .CombineLatest($username, $password)
+    .CombineLatest($username, $password) { ($0, $1) }
     .share()
-
 credentials
     .map { uname, pass in
         uname.count >= 4 && pass.count >= 4
@@ -108,9 +107,7 @@ $query
 
 ```swift
  $text
-    .throttle(for: 0.5, 
-        scheduler: .main, 
-           latest: true)
+    .throttle(for: 0.5, scheduler: .main, latest: true)
     .map { text  in
         API().search(with: text)
             .map { isAvailable in
