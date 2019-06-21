@@ -116,7 +116,6 @@ $query
             .prepend("Checking...")
     }
     .switchToLatest()
-    .prepend("Start typing...")
     // More in the example...
 ```
 
