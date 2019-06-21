@@ -108,14 +108,12 @@ $query
 ```swift
  $text
     .throttle(for: 0.5, scheduler: .main, latest: true)
-    .map { text  in
+    .map { text in
         API().search(with: text)
             .map { isAvailable in
-                isAvailable ? "Name available" 
-                        : "Name already taken"
+                isAvailable ? "Name available" : "Name already taken"
             }
             .prepend("Checking...")
-            .eraseToAnyPublisher()
     }
     .switchToLatest()
     .prepend("Start typing...")
