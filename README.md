@@ -45,19 +45,21 @@ Pawel Krawiec
 <h4>Simple user login validation</h4>
 
 ```swift
-let credentials = Publishers.CombineLatest($username, $password) { ($0, $1) }
+let credentials = Publishers
+    .CombineLatest($username, $password) { ($0, $1) }
     .share()
 
 credentials
     .map { uname, pass in
-        return uname.count >= 4 && pass.count >= 4
+        uname.count >= 4 && pass.count >= 4
     }
     .prepend(false) // initial state
     .assign(to: \.isEnabled, on: loginButton)
     .cancelled(by: cancellableBag)
+    // ...
 ```
 
-<br></br><br></br><br></br>
+<br></br><br></br>
 
 
 <img align="left" src="https://github.com/tailec/CombineExamples/blob/master/Resources/TimerGif.gif" />
