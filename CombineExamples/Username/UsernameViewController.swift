@@ -20,7 +20,7 @@ class UsernameViewController: UIViewController {
             .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
             .map { text -> AnyPublisher<String, Never> in
                 guard !text.isEmpty else {
-                    return Publishers.Just("Field can't be empty")
+                    return Just("Field can't be empty")
                         .eraseToAnyPublisher()
                 }
                 return API().search(with: text)
@@ -59,5 +59,10 @@ fileprivate class API {
 
 fileprivate struct SearchResponse: Decodable {
     let totalCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+    }
+    
 }
 
