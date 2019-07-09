@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
             .removeDuplicates()
             .map { query -> AnyPublisher<[Repo], Never> in
                 guard query.count >= 3 else {
-                    return Publishers.Just([])
+                    return Just([])
                         .eraseToAnyPublisher()
                 }
                 return API().search(with: query)

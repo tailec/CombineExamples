@@ -42,7 +42,7 @@ class TimerViewController: UIViewController {
                 guard let strongSelf = self else {
                     return Publishers.Empty().eraseToAnyPublisher()
                 }
-                return Publishers.Just(strongSelf.currentTime)
+                return Just(strongSelf.currentTime)
                     .eraseToAnyPublisher()
             }
             .switchToLatest()
