@@ -14,17 +14,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var loginButton: UIButton!
     @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
-    
+
     private let executing = CurrentValueSubject<Bool, Never>(false)
     private var cancellableBag = CancellableBag()
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let credentials = Publishers.CombineLatest($username, $password) { ($0, $1) }
+
+        let credentials = Publishers.CombineLatest($username, $password)
             .share()
-        
+
         credentials
             .map { uname, pass in
                 return uname.count >= 4 && pass.count >= 4
@@ -32,10 +32,10 @@ class LoginViewController: UIViewController {
             .prepend(false) // initial state
             .assign(to: \.isEnabled, on: loginButton)
             .cancelled(by: cancellableBag)
-        
+
         loginTaps
             .flatMap { _ in
-                return Publishers.Just((self.username, self.password))
+                return Just((self.username, self.password))
             }
             .handleEvents(receiveOutput: { [weak self] _ in
                 guard let strongSelf = self else { return }
@@ -63,10 +63,10 @@ class LoginViewController: UIViewController {
                 let alert = UIAlertController(title: result ? "Success!" : "Failure!", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 strongSelf.present(alert, animated: true)
-                
+
             })
             .cancelled(by: cancellableBag)
-        
+
         executing
             .map(!)
             .receive(on: DispatchQueue.main)
@@ -79,12 +79,12 @@ class LoginViewController: UIViewController {
     @IBAction func usernameDidChange(_ sender: UITextField) {
         username = sender.text ?? ""
     }
-    
+
     @Published private var password: String = ""
     @IBAction func passwordDidChange(_ sender: UITextField) {
         password = sender.text ?? ""
     }
-    
+
     private let loginTaps = PassthroughSubject<Void, Never>()
     @IBAction func loginDidTap(_ sender: UIButton) {
         loginTaps.send()

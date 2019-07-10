@@ -37,8 +37,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-//        case 0:
-//            show(loginViewController, sender: nil)
+        case 0:
+            show(loginViewController, sender: nil)
         case 1:
             show(searchViewController, sender: nil)
         case 2:
@@ -55,11 +55,10 @@ struct Row {
     let name: String
 }
 
-
-//var loginViewController: LoginViewController {
-//    guard let loginViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as? LoginViewController else { fatalError()}
-//    return loginViewController
-//}
+var loginViewController: LoginViewController {
+    guard let loginViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as? LoginViewController else { fatalError()}
+    return loginViewController
+}
 
 var searchViewController: SearchViewController {
     guard let searchViewController = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as? SearchViewController else { fatalError()}
