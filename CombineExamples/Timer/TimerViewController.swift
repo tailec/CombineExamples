@@ -40,9 +40,9 @@ class TimerViewController: UIViewController {
        splitButtonTaps
             .map { [weak self] _ -> AnyPublisher<String, Never> in
                 guard let strongSelf = self else {
-                    return Publishers.Empty().eraseToAnyPublisher()
+                    return Empty().eraseToAnyPublisher()
                 }
-                return Publishers.Just(strongSelf.currentTime)
+                return Just(strongSelf.currentTime)
                     .eraseToAnyPublisher()
             }
             .switchToLatest()

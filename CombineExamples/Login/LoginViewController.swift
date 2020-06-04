@@ -21,8 +21,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let credentials = Publishers.CombineLatest($username, $password) { ($0, $1) }
+        let credentials = Publishers.CombineLatest($username, $password)
             .share()
         
         credentials
@@ -34,8 +33,9 @@ class LoginViewController: UIViewController {
             .cancelled(by: cancellableBag)
         
         loginTaps
+        
             .flatMap { _ in
-                return Publishers.Just((self.username, self.password))
+                return Just((self.username, self.password))
             }
             .handleEvents(receiveOutput: { [weak self] _ in
                 guard let strongSelf = self else { return }
