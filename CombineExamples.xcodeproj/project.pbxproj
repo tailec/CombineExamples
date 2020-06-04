@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5397CD54248935CB007C5395 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 5397CD53248935CB007C5395 /* CombineExt */; };
 		E324A2A522BBA64B00069F17 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E324A2A422BBA64B00069F17 /* UsernameViewController.swift */; };
 		E324A2A722BBA65600069F17 /* Username.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E324A2A622BBA65600069F17 /* Username.storyboard */; };
 		E34B279622B8329D00BA839F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34B279522B8329D00BA839F /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5397CD54248935CB007C5395 /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +171,9 @@
 			dependencies = (
 			);
 			name = CombineExamples;
+			packageProductDependencies = (
+				5397CD53248935CB007C5395 /* CombineExt */,
+			);
 			productName = CombineExamples;
 			productReference = E34B279222B8329D00BA839F /* CombineExamples.app */;
 			productType = "com.apple.product-type.application";
@@ -197,6 +202,9 @@
 				Base,
 			);
 			mainGroup = E34B278922B8329D00BA839F;
+			packageReferences = (
+				5397CD52248935CB007C5395 /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			productRefGroup = E34B279322B8329D00BA839F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -432,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5397CD52248935CB007C5395 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5397CD53248935CB007C5395 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5397CD52248935CB007C5395 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E34B278A22B8329D00BA839F /* Project object */;
 }

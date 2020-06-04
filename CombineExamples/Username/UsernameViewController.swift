@@ -8,17 +8,18 @@
 
 import UIKit
 import Combine
+import CombineExt
 
 class UsernameViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
-    private let cancellableBag = CancellableBag()
+    private var cancellableBag = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         $text
             .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
-            .map { text -> AnyPublisher<String, Never> in
+            .flatMapLatest { text -> AnyPublisher<String, Never> in
                 guard !text.isEmpty else {
                     return Just("Field can't be empty")
                         .eraseToAnyPublisher()
@@ -30,14 +31,13 @@ class UsernameViewController: UIViewController {
                     .prepend("Checking...")
                     .eraseToAnyPublisher()
             }
-            .switchToLatest()
             .prepend("Start typing...") // initial state
             .receive(on: DispatchQueue.main)
             .sink { [weak self] message in
                 guard let strongSelf = self else { return }
                 strongSelf.label.text = message
             }
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
     }
     
     @Published private var text: String = ""

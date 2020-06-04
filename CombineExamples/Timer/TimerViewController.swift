@@ -17,7 +17,7 @@ class TimerViewController: UIViewController {
     
     @Published private var currentTime: String = ""
     private var laps = [String]()
-    private let cancellableBag = CancellableBag()
+    private var cancellableBag = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,13 @@ class TimerViewController: UIViewController {
             .replaceError(with: "")
             .eraseToAnyPublisher()
             .assign(to: \.currentTime, on: self)
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
         
         $currentTime
             .sink { value in
                 self.timerLabel.text = value
             }
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
         
        splitButtonTaps
             .map { [weak self] _ -> AnyPublisher<String, Never> in
@@ -55,7 +55,7 @@ class TimerViewController: UIViewController {
                 strongSelf.laps = laps
                 strongSelf.tableView.reloadData()
             }
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
     }
     
     private let splitButtonTaps = PassthroughSubject<Void, Never>()

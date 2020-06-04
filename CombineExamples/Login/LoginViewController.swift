@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
     
     private let executing = CurrentValueSubject<Bool, Never>(false)
-    private var cancellableBag = CancellableBag()
+    private var cancellableBag = Set<AnyCancellable>()
 
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
             }
             .prepend(false) // initial state
             .assign(to: \.isEnabled, on: loginButton)
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
         
         loginTaps
         
@@ -65,14 +65,14 @@ class LoginViewController: UIViewController {
                 strongSelf.present(alert, animated: true)
                 
             })
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
         
         executing
             .map(!)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .assign(to: \.isHidden, on: activityIndicator)
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
     }
 
     @Published private var username: String = ""

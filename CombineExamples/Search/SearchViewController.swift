@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     }
     
     private var repos = [Repo]()
-    private let cancellableBag = CancellableBag()
+    private var cancellableBag = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class SearchViewController: UIViewController {
                 strongSelf.repos = repos
                 strongSelf.tableView.reloadData()
             }
-            .cancelled(by: cancellableBag)
+            .store(in: &cancellableBag)
     }
     
     @Published private var query: String = ""
