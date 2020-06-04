@@ -33,15 +33,12 @@ class LoginViewController: UIViewController {
             .store(in: &cancellableBag)
         
         loginTaps
-        
-            .flatMap { _ in
-                return Just((self.username, self.password))
-            }
+            .withLatestFrom(credentials)
             .handleEvents(receiveOutput: { [weak self] _ in
                 guard let strongSelf = self else { return }
                 strongSelf.executing.send(true)
             })
-            .map { uname, pass in
+            .flatMapLatest { uname, pass in
                 URLSession.shared.get(url: URL(string: "https://postman-echo.com/basic-auth")!,
                                       params: ["username": uname,
                                                "password": pass,
@@ -51,7 +48,6 @@ class LoginViewController: UIViewController {
                     .map { $0.authenticated }
                     .replaceError(with: false)
             }
-            .switchToLatest()
             .handleEvents(receiveOutput: { [weak self] _ in
                 guard let strongSelf = self else { return }
                 strongSelf.executing.send(false)
@@ -63,7 +59,6 @@ class LoginViewController: UIViewController {
                 let alert = UIAlertController(title: result ? "Success!" : "Failure!", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 strongSelf.present(alert, animated: true)
-                
             })
             .store(in: &cancellableBag)
         

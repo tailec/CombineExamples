@@ -24,16 +24,14 @@ class SearchViewController: UIViewController {
         $query
             .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
             .removeDuplicates()
-            .map { query -> AnyPublisher<[Repo], Never> in
+            .flatMapLatest { query -> AnyPublisher<[Repo], Never> in
                 guard query.count >= 3 else {
-                    return Just([])
-                        .eraseToAnyPublisher()
+                    return Just([]).eraseToAnyPublisher()
                 }
                 return API().search(with: query)
                     .retry(3)
                     .eraseToAnyPublisher()
             }
-            .switchToLatest()
             .replaceError(with: [])
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
