@@ -10,11 +10,11 @@ import Foundation
 import Combine
 
 extension URLSession {
-    func get(url: URL, params: [String: Any]) -> AnyPublisher<Data, URLError> {
+    func get(url: URL, params: [String: String]) -> AnyPublisher<Data, URLError> {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         for param in params {
-            request.setValue(param.key, forHTTPHeaderField: param.value as! String)
+            request.setValue(param.value, forHTTPHeaderField: param.key)
         }
         
         return URLSession.shared.dataTaskPublisher(for: request)
