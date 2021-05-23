@@ -22,7 +22,7 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Timer.publish(every: 0.1, on: .main, in: .default)
+        Timer.publish(every: 0.1, on: .main, in: .common)
             .autoconnect()
             .scan(0, { (acc, _ ) in return acc + 1 })
             .map { $0.timeInterval }
